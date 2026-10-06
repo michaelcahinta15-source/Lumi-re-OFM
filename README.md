@@ -18,6 +18,17 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
+## Application email setup
+
+Application submissions, including the required proof-of-age attachment, are sent from the server through [Resend](https://resend.com), directly to `michaelcahinta15@gmail.com`. Proof files are limited to 5 MB and accepted as PDF, JPG, or PNG. Applicants are instructed to obscure information not needed to verify age and must consent to email delivery. Email can retain attachments in inboxes and backups; use a dedicated age-verification provider instead if you need stricter document-retention controls. To enable sending:
+
+1. Create a Resend API key.
+2. Copy `.env.example` to `.env.local`.
+3. Set `RESEND_API_KEY` to your secret API key. For testing, set `APPLICATION_FROM_EMAIL=onboarding@resend.dev`; Resend only allows this test sender to deliver to the verified email address on your Resend account. For production, verify a sending domain and use a sender address on that domain (for example, `Lumière OFM <applications@yourdomain.com>`).
+4. Add both environment variables to your production hosting provider before deployment.
+
+Keep the API key private; do not commit `.env.local` or expose the key in client-side code. Without these settings, the form returns an error rather than claiming an application was sent.
+
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
 ## Learn More

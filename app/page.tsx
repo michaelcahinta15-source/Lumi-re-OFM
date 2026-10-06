@@ -1,69 +1,120 @@
-import Image from "next/image";
+'use client';
+
+import Navbar from "@/components/Navbar";
+import Hero from "@/components/Hero";
+import { motion } from "framer-motion";
+import Link from "next/link";
+import Footer from "@/components/Footer";
+import Layout from "@/components/Layout";
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+    <Layout>
+      <Navbar />
+      <Hero />
+      <motion.div
+        initial={{ y: 20, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        exit={{ y: 20, opacity: 0 }}
+        className="mt-12 space-y-20 pb-16 sm:mt-16"
+      >
+        <section aria-labelledby="company-background-title" className="space-y-8">
+          <header className="mx-auto max-w-3xl text-center">
+            <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-primary">
+              Company Background
+            </p>
+            <h2 id="company-background-title" className="text-3xl font-semibold text-foreground sm:text-4xl">
+              More Engagement. Better Management. Real Experience.
+            </h2>
+          </header>
+          <div className="grid gap-4 md:grid-cols-2">
+            <article className="interactive-card p-6">
+              <p className="text-muted-foreground">
+                We are a growing OnlyFans management agency built by professionals who started from the ground up as creators’ chatters and progressed into Supervisors and Quality Assurance roles.
+              </p>
+            </article>
+            <article className="interactive-card p-6">
+              <p className="text-muted-foreground">
+                With hands-on experience in subscriber engagement, customer communication, sales, content promotion, and account management, our team has supported numerous OnlyFans creators and understands what it takes to keep an account active, engaging, and professionally managed.
+              </p>
+            </article>
+            <article className="interactive-card p-6">
+              <p className="text-muted-foreground">
+                Today, we operate as a dedicated 5–10 person team focused on providing reliable creator management, subscriber communication, content support, and performance monitoring.
+              </p>
+            </article>
+            <article className="interactive-card p-6">
+              <p className="text-muted-foreground">
+                What sets us apart is our experience. We know the industry from the inside—from handling conversations directly with subscribers to managing teams and maintaining high quality standards.
+              </p>
+            </article>
+            <article className="interactive-card p-6 md:col-span-2">
+              <p className="mx-auto max-w-4xl text-center text-muted-foreground">
+                Our goal is simple: help creators focus on their content while we handle the day-to-day management, engagement, and support needed to grow their presence and build long-term success.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <div className="grid gap-5 md:grid-cols-2">
+          {/* Management Preview */}
+          <section className="interactive-card flex flex-col items-center space-y-6 p-8 text-center">
+            <h2 className="text-3xl font-semibold text-foreground">Professional Management</h2>
+            <p className="text-muted-foreground max-w-2xl">
+              Transparent, creator-first management that handles the business so you can focus on creating.
+            </p>
+            <Link
+              href="/management"
+              className="flex h-10 items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground hover:bg-primary/90 transition-colors"
             >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+              Learn More
+            </Link>
+          </section>
+
+          {/* Benefits Preview */}
+          <section className="interactive-card flex flex-col items-center space-y-6 p-8 text-center">
+            <h2 className="text-3xl font-semibold text-foreground">Transparent Earnings</h2>
+            <p className="text-muted-foreground max-w-2xl">
+              Guaranteed base salary plus performance-based bonuses with clear recoupment terms.
+            </p>
+            <Link
+              href="/benefits"
+              className="flex h-10 items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground hover:bg-primary/90 transition-colors"
             >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+              Learn More
+            </Link>
+          </section>
+
+          {/* Assurance Preview */}
+          <section className="interactive-card flex flex-col items-center space-y-6 p-8 text-center">
+            <h2 className="text-3xl font-semibold text-foreground">Our Commitment to You</h2>
+            <p className="text-muted-foreground max-w-2xl">
+              Written contracts, transparent reporting, privacy protection, and dedicated support.
+            </p>
+            <Link
+              href="/assurance"
+              className="flex h-10 items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground hover:bg-primary/90 transition-colors"
+            >
+              Learn More
+            </Link>
+          </section>
+
+          {/* Call to Action */}
+          <section className="interactive-card space-y-6 p-8 md:col-span-2">
+            <h2 className="text-3xl font-semibold text-center text-foreground">Ready to Get Started?</h2>
+            <p className="text-muted-foreground text-center max-w-2xl mx-auto">
+              Join our community of creators who are taking control of their careers with transparent, professional management.
+            </p>
+            <Link
+              href="/apply"
+              className="flex h-10 items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground hover:bg-primary/90 transition-colors mx-auto"
+            >
+              Apply Now
+            </Link>
+          </section>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+      </motion.div>
+      <Footer />
+    </Layout>
   );
 }
