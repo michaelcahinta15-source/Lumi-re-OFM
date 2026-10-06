@@ -165,7 +165,7 @@ export async function POST(request: Request) {
       },
       body: JSON.stringify({
         from: fromEmail,
-        to: ["ofmlumiere@gmail.com"],
+        to: ["lumiereofm@gmail.com"],
         reply_to: application.email,
         subject: `Creator management application - ${application.name}`,
         text,
