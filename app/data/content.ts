@@ -1,6 +1,6 @@
 export const siteContent = {
   navbar: {
-    logo: "Lumière OFM",
+    logo: "Lumière Agency",
     links: ["Management", "Benefits", "Assurance", "Apply"],
     cta: "Apply Now"
   },

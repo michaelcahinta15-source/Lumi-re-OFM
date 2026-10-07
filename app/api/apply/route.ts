@@ -7,6 +7,9 @@ const applicationSchema = z.object({
   socialHandle: z.string().trim().min(1).max(100),
   platform: z.enum([
     "OnlyFans",
+    "Instagram",
+    "TikTok",
+    "YouTube",
     "Other subscription platform",
     "Preparing to launch",
   ]),

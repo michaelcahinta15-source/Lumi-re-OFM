@@ -197,6 +197,9 @@ export default function ApplySection() {
                 >
                   <option value="" disabled>Select a platform</option>
                   <option>OnlyFans</option>
+                  <option>Instagram</option>
+                  <option>TikTok</option>
+                  <option>YouTube</option>
                   <option>Other subscription platform</option>
                   <option>Preparing to launch</option>
                 </select>
