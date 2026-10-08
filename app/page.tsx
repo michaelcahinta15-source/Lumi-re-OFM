@@ -71,17 +71,17 @@ export default function Home() {
             </Link>
           </section>
 
-          {/* Benefits Preview */}
+          {/* Pricing Preview */}
           <section className="interactive-card flex flex-col items-center space-y-6 p-8 text-center">
-            <h2 className="text-3xl font-semibold text-foreground">Transparent Earnings</h2>
+            <h2 className="text-3xl font-semibold text-foreground">Transparent Pricing</h2>
             <p className="text-muted-foreground max-w-2xl">
-              Guaranteed base salary plus performance-based bonuses with clear recoupment terms.
+              Clear commission tiers based on monthly net revenue, with no upfront fees or hidden costs.
             </p>
             <Link
-              href="/benefits"
+              href="/pricing"
               className="flex h-10 items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground hover:bg-primary/90 transition-colors"
             >
-              Learn More
+              View Pricing
             </Link>
           </section>
 

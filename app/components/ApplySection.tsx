@@ -14,6 +14,9 @@ interface ApplicationDetails {
   contentOverview: string;
   goals: string;
   experience: string;
+  meetingDate: string;
+  meetingTime: string;
+  meetingTimeZone: string;
 }
 
 const initialDetails: ApplicationDetails = {
@@ -25,6 +28,9 @@ const initialDetails: ApplicationDetails = {
   contentOverview: "",
   goals: "",
   experience: "",
+  meetingDate: "",
+  meetingTime: "",
+  meetingTimeZone: "",
 };
 
 const fieldClassName =
@@ -119,7 +125,8 @@ export default function ApplySection() {
             </h3>
             <p className="mt-2 text-muted-foreground">
               Thank you for applying. Our team will review your information and
-              get back to you.
+              get back to you. If you requested a meeting, we&apos;ll confirm the
+              appointment with you.
             </p>
             <button
               type="button"
@@ -281,6 +288,57 @@ export default function ApplySection() {
                   <option>I&apos;m new to creating</option>
                   <option>I&apos;d prefer to discuss this</option>
                 </select>
+              </div>
+            </fieldset>
+
+            <fieldset className="space-y-5">
+              <legend className="mb-2 text-xl font-semibold text-foreground">
+                Request an intro meeting
+              </legend>
+              <p className="text-sm text-muted-foreground">
+                Share a preferred date and time if you would like to meet. This is a request, not a confirmed appointment; our team will contact you to confirm availability.
+              </p>
+              <div className="grid gap-5 sm:grid-cols-2">
+                <div>
+                  <label htmlFor="application-meeting-date" className="text-sm font-medium text-foreground">
+                    Preferred date (optional)
+                  </label>
+                  <input
+                    id="application-meeting-date"
+                    name="meetingDate"
+                    type="date"
+                    value={details.meetingDate}
+                    onChange={(event) => updateField("meetingDate", event.target.value)}
+                    className={fieldClassName}
+                  />
+                </div>
+                <div>
+                  <label htmlFor="application-meeting-time" className="text-sm font-medium text-foreground">
+                    Preferred time (optional)
+                  </label>
+                  <input
+                    id="application-meeting-time"
+                    name="meetingTime"
+                    type="time"
+                    value={details.meetingTime}
+                    onChange={(event) => updateField("meetingTime", event.target.value)}
+                    className={fieldClassName}
+                  />
+                </div>
+              </div>
+              <div>
+                <label htmlFor="application-meeting-time-zone" className="text-sm font-medium text-foreground">
+                  Time zone (optional)
+                </label>
+                <input
+                  id="application-meeting-time-zone"
+                  name="meetingTimeZone"
+                  maxLength={100}
+                  value={details.meetingTimeZone}
+                  onChange={(event) => updateField("meetingTimeZone", event.target.value)}
+                  className={fieldClassName}
+                  placeholder="e.g. America/New_York or UTC−4"
+                />
               </div>
             </fieldset>
 

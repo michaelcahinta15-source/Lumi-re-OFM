@@ -20,6 +20,9 @@ export default function Footer() {
             <a href="/management" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
               Management
             </a>
+            <a href="/pricing" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+              Pricing
+            </a>
             <a href="/benefits" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
               Benefits
             </a>

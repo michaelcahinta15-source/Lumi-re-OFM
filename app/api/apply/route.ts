@@ -17,6 +17,18 @@ const applicationSchema = z.object({
   contentOverview: z.string().trim().min(10).max(3000),
   goals: z.string().trim().min(10).max(3000),
   experience: z.string().max(100),
+  meetingDate: z.string().refine((value) => {
+    if (!value) return true;
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(value)) return false;
+    const parsedDate = new Date(`${value}T00:00:00.000Z`);
+    return !Number.isNaN(parsedDate.getTime()) && parsedDate.toISOString().slice(0, 10) === value;
+  }),
+  meetingTime: z.string().refine((value) => {
+    if (!value) return true;
+    const match = /^(\d{2}):(\d{2})$/.exec(value);
+    return match !== null && Number(match[1]) < 24 && Number(match[2]) < 60;
+  }),
+  meetingTimeZone: z.string().trim().max(100),
   isAdult: z.enum(["true"]),
   proofConsent: z.enum(["true"]),
 });
@@ -69,6 +81,9 @@ export async function POST(request: Request) {
       "contentOverview",
       "goals",
       "experience",
+      "meetingDate",
+      "meetingTime",
+      "meetingTimeZone",
       "isAdult",
       "proofConsent",
     ].map((key) => [key, form.get(key)]),
@@ -155,6 +170,11 @@ export async function POST(request: Request) {
     application.goals,
     "",
     `Creator experience: ${application.experience || "Not provided"}`,
+    "",
+    `Preferred meeting date: ${application.meetingDate || "Not requested"}`,
+    `Preferred meeting time: ${application.meetingTime || "Not requested"}`,
+    `Meeting time zone: ${application.meetingTimeZone || "Not provided"}`,
+    "Meeting preferences are requests only; the appointment must be confirmed with the applicant.",
     "",
     "Applicant confirmed they are 18 years of age or older.",
   ].join("\n");

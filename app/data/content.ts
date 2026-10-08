@@ -1,7 +1,7 @@
 export const siteContent = {
   navbar: {
     logo: "Lumière Agency",
-    links: ["Management", "Benefits", "Assurance", "Apply"],
+    links: ["Management", "Pricing", "Benefits", "Assurance", "Apply"],
     cta: "Apply Now"
   },
   hero: {
@@ -143,7 +143,7 @@ export const siteContent = {
     },
     {
       question: "Are there upfront costs?",
-      answer: "Any setup, equipment, or advertising costs—and whether they can be recouped—should be clearly listed in your agreement, including any applicable caps."
+      answer: "There are no upfront fees or hidden costs. Our commission is based on monthly net revenue, and you can cancel anytime with 30 days' notice."
     }
   ]
 };
